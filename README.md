@@ -1,3 +1,11 @@
+# A fork from jbehley's octree(including the test data)
+
+- build with vcpkg installed Boost:
+```
+cmake -B .\build\ -DCMAKE_TOOLCHAIN_FILE:PATH=C:/DevTools/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Release
+cmake --build build --config Release
+```
+
 
 # Efficient Radius Neighbor Search in Three-dimensional Point Clouds
 
