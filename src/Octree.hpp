@@ -1,8 +1,13 @@
 #include "Octree.h"
 
+//#include <cassert>
+#include <cstring>  // memset.
+#include <limits>   // infinity()
+
 namespace unibn
 {
 
+/// ----------------------------------------------------------------------------------------------
 template <typename PointT, typename ContainerT>
 Octree<PointT, ContainerT>::Octant::Octant()
     : isLeaf(true), x(0.0f), y(0.0f), z(0.0f), extent(0.0f), start(0), end(0), size(0)
@@ -16,15 +21,17 @@ Octree<PointT, ContainerT>::Octant::~Octant()
   for (uint32_t i = 0; i < 8; ++i) delete child[i];
 }
 
+
+/// ----------------------------------------------------------------------------------------------
 template <typename PointT, typename ContainerT>
-Octree<PointT, ContainerT>::Octree()
-    : root_(0), data_(0)
+Octree<PointT, ContainerT>::Octree() : root_(nullptr), data_(nullptr)
 {
 }
 
 template <typename PointT, typename ContainerT>
 Octree<PointT, ContainerT>::~Octree()
 {
+  // is it enough to only delete root? other leaf nodes?
   delete root_;
   if (params_.copyPoints) delete data_;
 }
@@ -40,7 +47,7 @@ void Octree<PointT, ContainerT>::initialize(const ContainerT& pts, const OctreeP
   else
     data_ = &pts;
 
-  const uint32_t N = pts.size();
+  const uint32_t N = static_cast<uint32_t> (pts.size());
   successors_ = std::vector<uint32_t>(N);
 
   // determine axis-aligned bounding box.
@@ -93,7 +100,7 @@ void Octree<PointT, ContainerT>::initialize(const ContainerT& pts, const std::ve
   else
     data_ = &pts;
 
-  const uint32_t N = pts.size();
+  const uint32_t N = static_cast<uint32_t> (pts.size());
   successors_ = std::vector<uint32_t>(N);
 
   if (indexes.size() == 0) return;

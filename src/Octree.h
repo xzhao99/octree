@@ -22,11 +22,7 @@
 // IN THE SOFTWARE.
 
 #include <stdint.h>
-
-#include <cassert>
 #include <cmath>
-#include <cstring>  // memset.
-#include <limits>
 #include <vector>
 
 // needed for gtest access to protected/private members ...

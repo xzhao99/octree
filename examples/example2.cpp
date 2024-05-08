@@ -1,6 +1,7 @@
-#include <iostream>
-#include <cstdlib>
 #include <time.h>
+
+#include <cstdlib>
+#include <iostream>
 
 #include "Octree.h"
 #include "utils.h"
@@ -67,8 +68,8 @@ struct access<CustomPoint, 2>
     return p.getZ();
   }
 };
-}
-}
+}  // namespace traits
+}  // namespace unibn
 
 int main(int argc, char** argv)
 {
