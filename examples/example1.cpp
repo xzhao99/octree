@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <time.h>
 
-#include "../Octree.hpp"
+#include "Octree.h"
 #include "utils.h"
 
 /** Example 1: Searching radius neighbors with default access by public x,y,z variables.

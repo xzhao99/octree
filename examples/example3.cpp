@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <time.h>
 
-#include "../Octree.hpp"
+#include "Octree.h"
 #include "utils.h"
 
 /** Example for a templated descriptor computation

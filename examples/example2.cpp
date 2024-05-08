@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <time.h>
 
-#include "../Octree.hpp"
+#include "Octree.h"
 #include "utils.h"
 
 /** Example 2: Same as first example, but with different point data structure, showing the

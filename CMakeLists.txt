@@ -7,6 +7,9 @@ if( NOT CMAKE_BUILD_TYPE )
    SET( CMAKE_BUILD_TYPE Release )
 endif()
 
+# global include for examples 1 - 3
+include_directories(${CMAKE_SOURCE_DIR}/src)
+
 find_package(Boost)
 
 if(Boost_FOUND)
