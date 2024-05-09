@@ -32,6 +32,7 @@ template <typename PointT, typename ContainerT>
 Octree<PointT, ContainerT>::~Octree()
 {
   // is it enough to only delete root? other leaf nodes?
+  // it is OK if the ~Octant() is recursive
   delete root_;
   if (params_.copyPoints) delete data_;
 }
